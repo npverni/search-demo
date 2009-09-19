@@ -9,7 +9,7 @@ class BookSearch < ActiveRecord::Base
     search.author_id_equals(self.author_id) if self.author_id
     search.title_like(self.keyword) unless self.keyword.blank?
 
-    search.all
+    search.all(:order => "title")
   end
   
   def to_param
