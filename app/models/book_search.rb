@@ -11,6 +11,10 @@ class BookSearch < ActiveRecord::Base
 
     search.all
   end
+  
+  def to_param
+    self.token
+  end
 
 private  
   def generate_token

@@ -1,48 +1,20 @@
 $().ready(function() {
-
-	$('#search-form').ajaxForm({
-			type: 'GET',
-//			beforeSubmit: beforeSearch,
-//			error: ajaxError,			
-	    success: function(response) { 
-//	  		eval(response);
-	//			afterSearch();	
-	    }
-	});
-
-
-	init();
-});
-
-function init(){
 	var token = getToken();
-	if(!token){
-		//createToken();
-	}else{
+	if(token){
 		initSearch(token);
 	}
-}
+});
 
 function getToken(){
-	return readCookie("token");
+	return window.location.hash.replace("#","");
 }
 
 function setToken(token){
-	createCookie("token",token,8); 
+	window.location.hash = token;
 }
 
 function clearToken(){
-	eraseCookie("token");
-}
-
-
-function createToken(){
-	$.post("/book_searches", {  },
-	  function(data){
-			setToken(data);
-			hydrate();
-	  }
-	);
+	window.location.hash = "";
 }
 
 function initSearch(token){
