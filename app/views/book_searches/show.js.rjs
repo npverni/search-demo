@@ -1,2 +1,3 @@
 page['search-holder'].html render :partial => '/books/search_form', :object => @search
 page['results'].html render :partial => 'result_set', :object => @results
+page << "setToken('#{@search.token}');wireEvents();"

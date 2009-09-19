@@ -17,6 +17,6 @@
 								 Author.find(:all,:order => "name").collect {|a| [ a.name, a.id ] },
 		  					 :include_blank => "--Select--" %>
 	</p>
-	<input type="submit" value="Search" /><br />
+	<input type="submit" value="Search" id="search-btn" /><br />
 <% end %>
 

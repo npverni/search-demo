@@ -1,9 +1,24 @@
 $().ready(function() {
-	var token = getToken();
-	if(token){
+	if(token = getToken()){
 		initSearch(token);
 	}
+
+	wireEvents();
 });
+
+
+function submitForm(){
+	$('#search-btn').click();
+}
+
+function wireEvents(){
+	$('#book_search_author_id').change(function(){
+		submitForm();
+	});	
+	$('#book_search_genre_id').change(function(){
+		submitForm();
+	});		
+}
 
 function getToken(){
 	return window.location.hash.replace("#","");
