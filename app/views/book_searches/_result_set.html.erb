@@ -1,0 +1,4 @@
+<h2><%= pluralize @results.size, "Result" %></h2>
+<% @results.each do |book| %>
+	<%= link_to book.title, book %> by <%= link_to book.author.name, book.author %><br />
+<% end %>
